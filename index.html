@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Primary Meta -->
+  <title>Aaj Ka Tel Bhav | India Petrol & Diesel Price Live</title>
+  <meta name="description" content="Aaj ka petrol aur diesel ka bhav dekho apne shehar mein. Live fuel prices for every city in India. Ekdum sahi, ekdum taza." />
+  <meta name="keywords" content="petrol price today, diesel price today, fuel price India, petrol price per litre, aaj ka petrol bhav, tel ka bhav" />
+  <meta name="author" content="Aaj Ka Tel Bhav" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://aajkatel.in/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://aajkatel.in/" />
+  <meta property="og:title" content="Aaj Ka Tel Bhav - Petrol & Diesel Price Live" />
+  <meta property="og:description" content="Apne shehar ka aaj ka petrol aur diesel bhav ek second mein. No drama, bas price." />
+  <meta property="og:image" content="https://aajkatel.in/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="en_IN" />
+  <meta property="og:site_name" content="Aaj Ka Tel Bhav" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://aajkatel.in/" />
+  <meta name="twitter:title" content="Aaj Ka Tel Bhav - Petrol & Diesel Price Live" />
+  <meta name="twitter:description" content="Apne shehar ka aaj ka petrol aur diesel bhav ek second mein. No drama, bas price." />
+  <meta name="twitter:image" content="https://aajkatel.in/og-image.png" />
+
+  <!-- Favicons (generate from realfavicongenerator.net and replace these) -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+  <link rel="manifest" href="/site.webmanifest" />
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#f59e0b" />
+  <meta name="msapplication-TileColor" content="#0a0a0a" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <!-- Fonts: DSEG7 for digital display numbers, Syne for UI -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;700;800&family=Noto+Sans:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <!-- DSEG7 Classic for digital clock numbers -->
+  <style>
+    @font-face {
+      font-family: 'DSEG7Classic';
+      src: url('https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG7-Classic/DSEG7Classic-Regular.woff2') format('woff2');
+      font-weight: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: 'DSEG7Classic';
+      src: url('https://cdn.jsdelivr.net/npm/dseg@0.46.0/fonts/DSEG7-Classic/DSEG7Classic-Bold.woff2') format('woff2');
+      font-weight: bold;
+      font-display: swap;
+    }
+  </style>
+
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Aaj Ka Tel Bhav",
+    "description": "Live petrol and diesel prices for every city in India",
+    "url": "https://aajkatel.in/",
+    "inLanguage": "en-IN",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://aajkatel.in/?city={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
+</head>
+<body>
+
+  <!-- Scanline overlay for CRT effect -->
+  <div class="scanlines" aria-hidden="true"></div>
+
+  <!-- Background glow blobs -->
+  <div class="bg-glow glow-1" aria-hidden="true"></div>
+  <div class="bg-glow glow-2" aria-hidden="true"></div>
+
+  <div class="container">
+
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-badge" id="header-badge">⛽ LIVE</div>
+      <h1 class="site-title" id="site-title"></h1>
+      <p class="site-tagline" id="site-tagline"></p>
+    </header>
+
+    <!-- Location Bar -->
+    <section class="location-bar" aria-label="Location">
+      <div class="location-display" id="location-display">
+        <span class="location-icon">📍</span>
+        <span class="location-text" id="location-text">Shehar dhundh rahe hain...</span>
+      </div>
+      <button class="location-btn" id="location-btn" aria-label="Detect my location">
+        <span class="btn-icon">🎯</span>
+        <span id="location-btn-text">Mera Shehar Batao</span>
+      </button>
+    </section>
+
+    <!-- City Search -->
+    <section class="search-section" aria-label="Search city">
+      <div class="search-wrapper">
+        <input
+          type="text"
+          class="city-search"
+          id="city-search"
+          placeholder="Ya seedha likho shehar ka naam..."
+          autocomplete="off"
+          aria-label="Search for a city"
+          list="city-suggestions"
+        />
+        <datalist id="city-suggestions"></datalist>
+        <button class="search-btn" id="search-btn" aria-label="Search">Khojo</button>
+      </div>
+    </section>
+
+    <!-- Main Price Display -->
+    <main class="price-board" id="price-board" aria-label="Fuel prices" aria-live="polite">
+
+      <!-- Loading State -->
+      <div class="price-loading" id="price-loading">
+        <div class="loading-display">
+          <span class="dseg loading-dots">8.8.8.8.8</span>
+        </div>
+        <p class="loading-text" id="loading-text">Pump se bhav maang rahe hain...</p>
+      </div>
+
+      <!-- Error State -->
+      <div class="price-error hidden" id="price-error">
+        <div class="error-icon">💀</div>
+        <p class="error-text" id="error-text"></p>
+        <button class="retry-btn" id="retry-btn">Phir Se Try Karo</button>
+      </div>
+
+      <!-- Price Cards -->
+      <div class="price-cards hidden" id="price-cards">
+
+        <div class="price-card petrol-card" role="article" aria-label="Petrol price">
+          <div class="fuel-label">
+            <span class="fuel-icon">🟡</span>
+            <span class="fuel-name" id="petrol-label">PETROL</span>
+          </div>
+          <div class="price-display" aria-label="Petrol price per litre">
+            <span class="currency dseg">₹</span>
+            <span class="price-whole dseg" id="petrol-whole">--</span>
+            <span class="price-dot dseg">.</span>
+            <span class="price-decimal dseg" id="petrol-decimal">--</span>
+          </div>
+          <div class="price-unit" id="petrol-unit">per litre</div>
+          <div class="price-change" id="petrol-change"></div>
+        </div>
+
+        <div class="price-divider" aria-hidden="true">
+          <span class="divider-vs">VS</span>
+        </div>
+
+        <div class="price-card diesel-card" role="article" aria-label="Diesel price">
+          <div class="fuel-label">
+            <span class="fuel-icon">🟤</span>
+            <span class="fuel-name" id="diesel-label">DIESEL</span>
+          </div>
+          <div class="price-display" aria-label="Diesel price per litre">
+            <span class="currency dseg">₹</span>
+            <span class="price-whole dseg" id="diesel-whole">--</span>
+            <span class="price-dot dseg">.</span>
+            <span class="price-decimal dseg" id="diesel-decimal">--</span>
+          </div>
+          <div class="price-unit" id="diesel-unit">per litre</div>
+          <div class="price-change" id="diesel-change"></div>
+        </div>
+
+      </div>
+
+      <!-- Last Updated -->
+      <div class="update-info hidden" id="update-info">
+        <span class="update-dot"></span>
+        <span id="update-text"></span>
+      </div>
+
+    </main>
+
+    <!-- Report Section -->
+    <section class="report-section" id="report-section" aria-label="Report incorrect price">
+      <button class="report-toggle" id="report-toggle" aria-expanded="false">
+        <span id="report-toggle-text"></span>
+      </button>
+      <div class="report-form hidden" id="report-form" role="form" aria-label="Price report form">
+        <p class="report-desc" id="report-desc"></p>
+        <div class="report-fields">
+          <div class="report-row">
+            <label for="report-type">Kaun sa tel?</label>
+            <select id="report-type" name="fuel_type">
+              <option value="petrol">Petrol</option>
+              <option value="diesel">Diesel</option>
+            </select>
+          </div>
+          <div class="report-row">
+            <label for="report-price">Sahi bhav (₹/litre)</label>
+            <input type="number" id="report-price" name="correct_price" placeholder="e.g. 94.72" step="0.01" min="50" max="200" />
+          </div>
+          <div class="report-row">
+            <label for="report-pump">Pump ka naam (optional)</label>
+            <input type="text" id="report-pump" name="pump_name" placeholder="e.g. HP Petrol Pump, MG Road" />
+          </div>
+        </div>
+        <button class="report-submit" id="report-submit">
+          <span id="report-submit-text">Bhej Do Report</span>
+        </button>
+        <p class="report-thanks hidden" id="report-thanks"></p>
+      </div>
+    </section>
+
+    <!-- Fun Fact / Quote of the day -->
+    <section class="fun-fact" id="fun-fact-section" aria-label="Fun fact">
+      <p class="fun-fact-text" id="fun-fact-text"></p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <p id="footer-disclaimer"></p>
+      <p id="footer-credit"></p>
+      <div class="footer-links">
+        <a href="https://ppac.gov.in" target="_blank" rel="noopener noreferrer" id="footer-source-link">Data Source</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <script src="content.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
