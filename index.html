@@ -30,7 +30,7 @@
   <meta name="twitter:description" content="Apne shehar ka aaj ka petrol aur diesel bhav ek second mein. No drama, bas price." />
   <meta name="twitter:image" content="https://aajkatel.in/og-image.png" />
 
-  <!-- Favicons (generate from realfavicongenerator.net and replace these) -->
+  <!-- Favicons -->
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
@@ -61,6 +61,10 @@
   </style>
 
   <link rel="stylesheet" href="style.css" />
+
+  <!-- Google AdSense -->
+  <!-- REPLACE ca-pub-XXXXXXXXXXXXXXXXX with your actual publisher ID -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
 
   <!-- Structured Data -->
   <script type="application/ld+json">
@@ -125,6 +129,17 @@
         <button class="search-btn" id="search-btn" aria-label="Search">Khojo</button>
       </div>
     </section>
+
+    <!-- Ad Unit 1: Below Search, Above Prices -->
+    <!-- REPLACE data-ad-slot value with your actual ad slot ID -->
+    <div class="ad-unit ad-unit--leaderboard" aria-label="Advertisement">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+           data-ad-slot="XXXXXXXXXX"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
 
     <!-- Main Price Display -->
     <main class="price-board" id="price-board" aria-label="Fuel prices" aria-live="polite">
@@ -191,6 +206,17 @@
 
     </main>
 
+    <!-- Ad Unit 2: Below Prices, Above Report -->
+    <!-- REPLACE data-ad-slot value with your actual ad slot ID -->
+    <div class="ad-unit ad-unit--rectangle" aria-label="Advertisement">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+           data-ad-slot="XXXXXXXXXX"
+           data-ad-format="rectangle"
+           data-full-width-responsive="true"></ins>
+    </div>
+
     <!-- Report Section -->
     <section class="report-section" id="report-section" aria-label="Report incorrect price">
       <button class="report-toggle" id="report-toggle" aria-expanded="false">
@@ -227,6 +253,17 @@
       <p class="fun-fact-text" id="fun-fact-text"></p>
     </section>
 
+    <!-- Ad Unit 3: Above Footer -->
+    <!-- REPLACE data-ad-slot value with your actual ad slot ID -->
+    <div class="ad-unit ad-unit--leaderboard" aria-label="Advertisement">
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-client="ca-pub-XXXXXXXXXXXXXXXXX"
+           data-ad-slot="XXXXXXXXXX"
+           data-ad-format="auto"
+           data-full-width-responsive="true"></ins>
+    </div>
+
     <!-- Footer -->
     <footer class="site-footer">
       <p id="footer-disclaimer"></p>
@@ -240,5 +277,13 @@
 
   <script src="content.js"></script>
   <script src="app.js"></script>
+
+  <!-- Initialise all AdSense units -->
+  <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+
 </body>
 </html>
