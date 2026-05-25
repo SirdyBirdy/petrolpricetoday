@@ -1,0 +1,45 @@
+# ============================================================
+#  AAJKATEL.IN  --  .github/workflows/update-prices.yml
+#  Runs daily at 6:30 AM IST (1:00 AM UTC) — prices update
+#  at 6 AM IST, so this gives them 30 mins to propagate.
+#  Fetches from mypetrolprice.com, commits data/prices.json,
+#  Netlify auto-deploys on push.
+# ============================================================
+
+name: Update Fuel Prices
+
+on:
+  schedule:
+    # 1:00 AM UTC = 6:30 AM IST
+    - cron: "0 1 * * *"
+  workflow_dispatch: # allow manual trigger from GitHub Actions tab
+
+jobs:
+  update-prices:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install node-fetch@2 cheerio
+        working-directory: .github/scripts
+
+      - name: Run price update script
+        run: node .github/scripts/update-prices.js
+
+      - name: Commit updated prices.json
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/prices.json
+          # Only commit if there are actual changes
+          git diff --cached --quiet || git commit -m "chore: update fuel prices $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push
